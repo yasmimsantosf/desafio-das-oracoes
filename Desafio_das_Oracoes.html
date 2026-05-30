@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desafio das Orações</title>
+<style>
+body{
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg,#c9e7ff,#e6d5ff);
+text-align:center;
+padding:30px;
+}
+.card{
+max-width:800px;
+margin:auto;
+background:white;
+border-radius:20px;
+padding:25px;
+box-shadow:0 4px 15px rgba(0,0,0,.2);
+}
+h1{color:#5a3ea6}
+#frase{
+font-size:24px;
+margin:25px;
+min-height:80px;
+}
+#resposta{
+font-size:22px;
+color:#1d6b2f;
+font-weight:bold;
+margin-top:20px;
+min-height:60px;
+}
+button{
+padding:12px 20px;
+margin:8px;
+border:none;
+border-radius:12px;
+font-size:18px;
+cursor:pointer;
+}
+.sortear{background:#7c5cff;color:white;}
+.ver{background:#42b883;color:white;}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>🌟 DESAFIO DAS ORAÇÕES 🌟</h1>
+<p>Sorteie uma oração e tente classificá-la antes de ver a resposta!</p>
+
+<div id="frase">Clique em "Sortear Oração".</div>
+
+<button class="sortear" onclick="sortear()">🎲 Sortear Oração</button>
+<button class="ver" onclick="mostrar()">🔍 Ver Resposta</button>
+
+<div id="resposta"></div>
+</div>
+
+<script>
+const cartas = [
+["Estudei bastante e consegui uma boa nota.","Coordenação Sindética Aditiva"],
+["Cheguei cedo, mas a escola estava fechada.","Coordenação Sindética Adversativa"],
+["Ou você estuda, ou terá dificuldades na prova.","Coordenação Sindética Alternativa"],
+["Espero que você participe da apresentação.","Subordinada Substantiva Objetiva Direta"],
+["É importante que todos estudem para a prova.","Subordinada Substantiva Subjetiva"],
+["Tenho certeza de que ele virá.","Subordinada Substantiva Completiva Nominal"],
+["O aluno que tirou nota máxima recebeu um prêmio.","Subordinada Adjetiva Restritiva"],
+["Brasília, que é a capital do Brasil, foi planejada.","Subordinada Adjetiva Explicativa"],
+["Quando a chuva parar, iremos ao parque.","Subordinada Adverbial Temporal"],
+["Embora estivesse cansado, continuou estudando.","Subordinada Adverbial Concessiva"],
+["Se você praticar, aprenderá rapidamente.","Subordinada Adverbial Condicional"],
+["Como estava doente, faltou à aula.","Subordinada Adverbial Causal"],
+["Estudou tanto que passou em primeiro lugar.","Subordinada Adverbial Consecutiva"],
+["Conforme o professor explicou, realizamos a atividade.","Subordinada Adverbial Conformativa"],
+["Ao chegar à escola, encontrei meus amigos.","Reduzida de Infinitivo (Temporal)"],
+["Vendo o resultado, ficou muito feliz.","Reduzida de Gerúndio (Causal)"],
+["Terminada a atividade, os alunos saíram.","Reduzida de Particípio (Temporal)"],
+["Lembrei-me de que precisava estudar.","Substantiva Objetiva Indireta"],
+["Minha vontade era que tudo desse certo.","Substantiva Predicativa"],
+["Só fiz um pedido: que todos colaborassem.","Substantiva Apositiva"],
+["Trabalhou muito para que alcançasse seus objetivos.","Adverbial Final"],
+["À medida que o tempo passava, a ansiedade aumentava.","Adverbial Proporcional"],
+["Ele corre tão rápido quanto o irmão.","Adverbial Comparativa"],
+["Estude bastante, pois a prova será difícil.","Coordenação Sindética Explicativa"],
+["Choveu muito; portanto, o jogo foi cancelado.","Coordenação Sindética Conclusiva"],
+["Ora ria, ora chorava.","Coordenação Sindética Alternativa"],
+["Ao terminar a leitura, respondeu às questões.","Reduzida de Infinitivo (Temporal)"],
+["Estudando com dedicação, alcançará bons resultados.","Reduzida de Gerúndio (Condicional)"],
+["Encerrada a reunião, todos foram embora.","Reduzida de Particípio (Temporal)"]
+];
+
+let atual = null;
+
+function sortear(){
+atual = Math.floor(Math.random()*cartas.length);
+document.getElementById("frase").innerText = cartas[atual][0];
+document.getElementById("resposta").innerText = "";
+}
+
+function mostrar(){
+if(atual===null){
+document.getElementById("resposta").innerText = "Primeiro sorteie uma oração.";
+return;
+}
+document.getElementById("resposta").innerText = "✅ " + cartas[atual][1];
+}
+</script>
+</body>
+</html>
